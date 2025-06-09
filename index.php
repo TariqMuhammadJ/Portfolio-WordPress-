@@ -1,4 +1,5 @@
 <?php 
+
 get_header();
 ?>
  <div class="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
@@ -7,7 +8,7 @@ get_header();
           <div class="@[480px]:p-4">
             <div
               class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10"
-              style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkBgHEoncxcKe20RxZiyhnWme3WZO9QYRKT7jA6VJuMoZvbTE-yBALMHHG8BcCvVmrk27ZD1GllfrdbgIdvs3unpy4sWthWsRtmey6SKDwrejzwy6_gM-tdnCfdS9jiTcsOS55Ycv_vC3oVKmGNN3no961TFf2BUu0BGvv8I5QgiimoAPoXLvnUcyaytZeAR8zHSufptLZaA1KazfELZwZhOtbCMSeeMMMM2OkHrbnXKsMO9hnU1l85bsdQh4TWTbh_M3evxzzSRY");'
+              style='background-image: url(<?php echo get_theme_mod("hero-background-image"); ?>');'
             >
               <div class="flex flex-col gap-2 text-left">
                 <h1
@@ -23,7 +24,7 @@ get_header();
               <button
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c77f2] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
               >
-                <span class="truncate">View My Portfolio</span>
+                <span class="truncate"><a href="<?php echo home_url('/projects'); ?>">View My Portfolio</a></span>
               </button>
             </div>
           </div>

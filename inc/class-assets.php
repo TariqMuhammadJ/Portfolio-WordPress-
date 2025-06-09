@@ -12,8 +12,9 @@ class Theme_Assets{
 
     }
 
-    private function construct(){
+    private function __construct(){
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+        add_action('init', [$this, 'register_custom_post_type']);
     }
 
     public function enqueue_assets(){
@@ -41,6 +42,21 @@ class Theme_Assets{
         );
 
         }
+
+        public function register_custom_post_type(){
+            register_post_type('project', [
+                'labels' => [
+                    'name' => __('Projects'),
+                    'singular_name' => __('Project'),
+                ],
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => ['slug' => 'projects'],
+                'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions'],
+                'show_in_rest' => true,
+            ]);
+        }
+
 
     
 }
