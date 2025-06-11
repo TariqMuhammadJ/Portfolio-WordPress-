@@ -1,0 +1,9 @@
+{
+  "apiVersion": 2,
+  "name": "portfolio/technologies",
+  "title": "Technologies",
+  "category": "widgets",
+  "icon": "screenoptions",
+  "editorScript": "file:./index.js",
+  "style":"file:./style-block.css"
+}

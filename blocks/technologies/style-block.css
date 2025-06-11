@@ -1,0 +1,47 @@
+
+:root{
+    --font-color:#111418;
+    --heading-font-size:1rem;
+    --font-weight: normal;
+    --line-height: normal;
+    
+
+}
+
+.technologies-block{
+    display: flex;
+    width: 100%;
+    background-image: linear-gradient(to right, black, rgb(171, 147, 147), black);
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.technology-heading{
+    color:white;
+    padding: 0.5vw;
+    border-radius:5px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:1.2rem;
+    font-weight: bold;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.techList{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.techList > li{
+    background-color:rgba(0, 255, 255, 0.484);
+    padding:0.5vw;
+    color:var(--font-color);
+    margin-top:0.5vw;
+    border-radius: 5px;
+    font-weight: var(--font-weight);
+}
+
+.techList > li:not(:first-child){
+    margin-left:0.5vw;
+}
