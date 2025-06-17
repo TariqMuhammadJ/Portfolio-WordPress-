@@ -15,7 +15,7 @@ registerBlockType('portfolio/technologies', {
   edit: function (props) {
     return createElement(
       'div', 
-      { className: 'technologies-block' },
+      { className: 'technologies-block-edit' },
       createElement(PlainText, {
         value: props.attributes.content,
         onChange: function (value) {
