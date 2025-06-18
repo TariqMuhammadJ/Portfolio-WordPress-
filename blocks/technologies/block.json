@@ -5,5 +5,5 @@
   "category": "widgets",
   "icon": "screenoptions",
   "editorScript": "file:./index.js",
-  "style":"file:./style-block.css"
+  "style":"file:../single-project.css"
 }

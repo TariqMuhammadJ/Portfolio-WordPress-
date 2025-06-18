@@ -24,7 +24,7 @@ get_header();
               <button
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c77f2] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
               >
-                <span class="truncate"><a href="<?php echo home_url('/projects'); ?>">View My Portfolio</a></span>
+                <span class="truncate"><a href="<?php echo home_url('/portfolio'); ?>">View My Portfolio</a></span>
               </button>
             </div>
           </div>

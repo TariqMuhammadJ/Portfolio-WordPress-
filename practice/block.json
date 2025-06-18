@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "portfolio/technologies",
+  "title": "Technologies",
+  "category": "widgets",
+  "icon": "screenoptions",
+  "description": "Add and display a list of technologies.",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "attributes": {
+    "techList": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

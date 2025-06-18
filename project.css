@@ -1,3 +1,41 @@
+p{
+    font-family:"Roboto", sans-serif;
+    font-weight: 300;
+}
+
+
+.wp-block-list{
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;    
+    list-style-position: inside;
+}
+
+.wp-block-list li{
+    background-color: rgb(242, 167, 167);
+    margin-top:0.5vw;
+    margin-bottom:0.5vw;  
+    padding:0.5vw;  
+    line-height: 2rem;
+}
+
+.wp-block-list li::before{
+    content: '🔥'; /* Or Unicode: '\f007' */
+    font-family: 'Font Awesome 6 Free'; /* Depends on icon font */
+    font-weight: 900; /* Required for some icon fonts like Font Awesome solid */
+    margin-right: 8px;
+}
+
+
+
+strong{
+    font-size:1.3rem;
+}
+
+.prose  > p:not(:first-child){
+    margin-top:1vw;
+    margin-bottom:1vw;
+    
+}
 
 :root{
     --font-color:#111418;
@@ -11,7 +49,7 @@
 .technologies-block{
     display: flex;
     width: 100%;
-    background-image: linear-gradient(to right, black, rgb(171, 147, 147), black);
+    background-color: rgb(242, 167, 167);
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;

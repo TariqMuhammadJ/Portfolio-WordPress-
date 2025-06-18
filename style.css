@@ -1,7 +1,7 @@
 /*
 Theme Name: portfolio
 Theme URI: https://example.com/portfolio
-Author: Your Name
+Author: Muhammad Tariq
 Author URI: https://example.com
 Description: A simple WordPress theme.
 Version: 1.0
@@ -13,5 +13,12 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, theme-option
 
 /* Start writing your CSS below */
 
+:font_styles{
+    color:#111418;
+    font-size:1rem;
+    font-weight: normal;
+    line-height: normal;
+    
 
+}
 
