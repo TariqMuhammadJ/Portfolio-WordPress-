@@ -4,6 +4,6 @@
   "title": "Technologies",
   "category": "widgets",
   "icon": "screenoptions",
-  "editorScript": "file:./index.js",
-  "style":"file:../single-project.css"
+  "editorScript": "portfolio-tech-block",
+  "style":"project-style"
 }

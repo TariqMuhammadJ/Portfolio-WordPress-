@@ -11,5 +11,16 @@ new Class_customize();
 new Author_Fields();
 
 
+add_filter('excerpt_length', function($length){
+    if(get_post_type() === 'project'){
+        return 20;
+    }
+
+    return $length;
+})
+
+
+
+
 
 ?>

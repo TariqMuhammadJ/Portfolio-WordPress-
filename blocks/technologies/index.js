@@ -2,6 +2,20 @@ const { registerBlockType } = wp.blocks;
 const { PlainText } = wp.blockEditor;
 const { createElement } = wp.element;
 
+const techIcons = {
+  javascript: "🟨",
+  php: "🐘",
+  html: "🌐",
+  css: "🎨",
+  react: "⚛️",
+  wordpress: "📝",
+  node: "🟢",
+  mysql: "🗄️",
+  tailwind: "🌬️",
+  typescript: "🔷"
+};
+
+
 registerBlockType('portfolio/technologies', {
   title: 'Technologies',
   icon: 'screenoptions',
@@ -31,7 +45,10 @@ registerBlockType('portfolio/technologies', {
       .map(item => item.trim())
       .filter(item => item !== '')
       .map(function (item, index) {
-        return createElement('li', { key: index }, item);
+        const key = item.toLowerCase();
+        const icon = techIcons[key] ||  "💻";
+
+        return createElement('li', { key: index }, `${icon} ${item}`);
       });
 
     return createElement(

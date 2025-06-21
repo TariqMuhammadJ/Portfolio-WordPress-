@@ -13,6 +13,7 @@ p{
 .wp-block-list li{
     background-color: rgb(242, 167, 167);
     margin-top:0.5vw;
+    box-shadow: 1px 1px 3px pink;
     margin-bottom:0.5vw;  
     padding:0.5vw;  
     line-height: 2rem;
@@ -49,20 +50,15 @@ strong{
 .technologies-block{
     display: flex;
     width: 100%;
-    background-color: rgb(242, 167, 167);
     box-sizing: border-box;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
 }
 
 .technology-heading{
-    color:white;
-    padding: 0.5vw;
     border-radius:5px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size:1.2rem;
-    font-weight: bold;
-    font-family: "Fira Sans", sans-serif;
+    font-family:'Roboto', sans-serif;
+    font-size:1.5rem;
 }
 
 .techList{
@@ -72,7 +68,8 @@ strong{
 }
 
 .techList > li{
-    background-color:rgba(0, 255, 255, 0.484);
+    background-color:rgba(115, 255, 0, 0.484);
+    box-shadow: 2px 2px 4px black;
     padding:0.5vw;
     color:var(--font-color);
     margin-top:0.5vw;
