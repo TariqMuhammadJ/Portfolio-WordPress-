@@ -17,10 +17,20 @@ class Theme_Assets{
         self::$version = wp_get_theme()->get('Version');
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
         add_action('init', [$this, 'init_hook']);
+        add_action('admin_init', [$this, 'yourbrand_register_settings']);
         add_action('after_setup_theme', [$this, 'after_setup']);
+        add_action('admin_menu', [ $this, 'brand_theme_settings' ] );
         add_action('add_meta_boxes', [$this, 'meta_boxes']);
         add_action('wp_enqueue_scripts', [$this, 'setup_page']);
-        add_action('save_post_project', [$this, 'save_post_meta']);
+        add_action('save_post_project', [$this, 's
+
+        /**
+         * Fires before the administration menu loads in the admin.
+         *
+         * @param string $context Empty context.
+         */
+        public function action_admin_menu($context) : void {
+        }ave_post_meta']);
 
     }
 
@@ -181,10 +191,44 @@ class Theme_Assets{
             null
         );
     }
+
+    
+}
+
+public function brand_theme_settings(){
+    add_menu_page('Theme Settings', 'Theme Settings', 'manage_options', 'theme-settings', [$this, 'your_brand_theme_settings_page_markup']);
 }
 
 
+public function your_brand_theme_settings_page_markup(){
+    ?>
+    <div class="wrap">
+        <h2>YourBrand Settings</h2>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('yourbrand_settings');
+            do_settings_sections('yourbrand_settings');
+            ?>
+            <table class="form-table">
+                <tr>
+                    <th><label for="yourbrand_name">Brand Name</label></th>
+                    <td><input type="text" id="yourbrand_name" name="yourbrand_name" value="<?php echo esc_attr(get_option('yourbrand_name', 'YourBrand')); ?>" class="regular-text" /></td>
+                </tr>
+                <tr>
+                    <th><label for="yourbrand_tagline">Tagline</label></th>
+                    <td><textarea name="yourbrand_tagline" id="yourbrand_tagline" class="large-text"><?php echo esc_textarea(get_option('yourbrand_tagline', 'Building beautiful, fast, and accessible WordPress solutions.')); ?></textarea></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <?php
+}
 
+public function yourbrand_register_settings(){
+    register_setting('yourbrand_settings', 'yourbrand_name');
+    register_setting('yourbrand_settings', 'yourbrand_tagline');
+}
 
     
 }

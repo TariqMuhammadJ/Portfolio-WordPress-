@@ -13,41 +13,60 @@ $args = [
 $query = new WP_Query($args);
 
 if ($query->have_posts()) : ?>
-    <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured Projects</h2>
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-[#111418] text-3xl sm:text-4xl font-extrabold tracking-tight mb-8 text-center">
+            🌟 Featured Projects
+        </h2>
 
-    <?php while ($query->have_posts()) : $query->the_post(); ?>
-        <div class="p-4">
-            <div class="flex items-stretch justify-between gap-4 rounded-lg">
-                <div class="flex flex-col gap-1 flex-[2_2_0px]">
-                    <p class="text-[#60748a] text-sm font-normal leading-normal">
-                        <?php echo esc_html(get_post_meta(get_the_ID(), 'tech_stack', true)); ?>
-                    </p>
-                    <p class="text-[#111418] text-base font-bold leading-tight"><?php the_title(); ?></p>
-                    <p class="text-[#60748a] text-sm font-normal leading-normal"><?php the_excerpt(); ?></p>
-                </div>
-                <?php if (has_post_thumbnail()) : ?>
-                    <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
-                         style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url()); ?>');">
+        <div class="grid md:grid-cols-2 gap-6">
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <div class="md:w-1/2 h-48 md:h-auto bg-cover bg-center"
+                             style="background-image: url('<?php echo esc_url(get_the_post_thumbnail_url()); ?>');">
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="p-6 flex flex-col justify-between md:w-1/2">
+                        <div class="mb-4">
+                            <p class="text-[#2563eb] text-sm font-semibold uppercase tracking-wide">
+                                <?php echo esc_html(get_post_meta(get_the_ID(), 'tech_stack', true)); ?>
+                            </p>
+                            <h3 class="text-[#111418] text-xl font-bold mt-2 mb-1">
+                                <?php the_title(); ?>
+                            </h3>
+                            <p class="text-[#4B5563] text-sm leading-relaxed">
+                                <?php the_excerpt(); ?>
+                            </p>
+                        </div>
+                        <a href="<?php the_permalink(); ?>" class="text-[#2563eb] text-sm font-medium hover:underline">
+                            View Project →
+                        </a>
                     </div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endwhile; ?>
         </div>
-    <?php endwhile; ?>
 
-    <div class="pagination px-4 py-6 text-center">
-        <?php
-        echo paginate_links([
-            'total' => $query->max_num_pages,
-            'current' => $paged,
-            'prev_text' => '« Prev',
-            'next_text' => 'Next »',
-        ]);
-        ?>
-    </div>
+        <div class="mt-10 text-center">
+            <?php
+            echo paginate_links([
+                'total' => $query->max_num_pages,
+                'current' => $paged,
+                'prev_text' => '← Prev',
+                'next_text' => 'Next →',
+                'type' => 'list',
+                'before_page_number' => '<span class="inline-block px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800">',
+                'after_page_number' => '</span>'
+            ]);
+            ?>
+        </div>
+    </section>
 
 <?php else : ?>
-    <p class="px-4 py-5">No projects found.</p>
+    <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+        <p class="text-lg text-gray-500">🚫 No projects found at the moment.</p>
+    </section>
 <?php endif;
 
 wp_reset_postdata();
-
+?>

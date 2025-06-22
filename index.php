@@ -177,17 +177,15 @@ get_header();
             </div>
           </div>
         </div>
-        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+        <div class="flex flex-col gap-6 px-5 py-10 text-center @container">
           <?php if(is_active_sidebar('footer-social')) : ?>
           <div class="flex flex-wrap justify-center gap-4">
             <?php dynamic_sidebar('footer-social'); ?>
             
           </div>
           <?php endif; ?>
-          <p class="text-[#60748a] text-base font-normal leading-normal">@2023 Sarah Chen. All rights reserved.</p>
-        </footer>
+          </div>
       </div>
-      <div><div class="h-5 bg-white"></div></div>
     </div>
 <?php 
 get_footer();
