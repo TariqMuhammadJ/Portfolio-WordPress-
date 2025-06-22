@@ -20,7 +20,7 @@ get_header();
        }
 
        elseif(is_page('contact')){
-        get_template_part('templates/template', 'contact');
+        do_action('contact_form');
        }
 
 
