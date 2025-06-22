@@ -23,6 +23,10 @@ get_header();
         do_action('contact_form');
        }
 
+       elseif(is_page('blog')){
+        get_template_part('templates/template', 'blog');
+       }
+
 
 
        ?>

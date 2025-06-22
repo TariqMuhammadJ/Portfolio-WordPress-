@@ -14,16 +14,23 @@
       </div>
 
       <!-- Quick Links -->
-      <div>
+       <div>
         <h4 class="text-sm font-semibold uppercase mb-3 tracking-wide">Quick Links</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="<?php echo home_url('/'); ?>" class="hover:text-blue-600">Home</a></li>
-          <li><a href="<?php echo home_url('/portfolio'); ?>" class="hover:text-blue-600">Portfolio</a></li>
-          <li><a href="<?php echo home_url('/about'); ?>" class="hover:text-blue-600">About</a></li>
-          <li><a href="<?php echo home_url('/contact'); ?>" class="hover:text-blue-600">Contact</a></li>
+          <?php
+          $pages = get_pages([
+            'sort_column' => 'menu_order',
+            'sort_order'  => 'asc',
+            'post_status' => 'publish'
+          ]);
+
+          foreach ($pages as $page) {
+            echo '<li><a href="' . esc_url(get_permalink($page->ID)) . '" class="hover:text-blue-600">' . esc_html($page->post_title) . '</a></li>';
+          }
+          ?>
         </ul>
       </div>
-
+      
       <!-- Resources -->
       <div>
         <h4 class="text-sm font-semibold uppercase mb-3 tracking-wide">Resources</h4>

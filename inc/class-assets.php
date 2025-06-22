@@ -155,6 +155,16 @@ class Theme_Assets {
     }
 
     public function setup_page() {
+
+        if (is_single()){
+            wp_enqueue_style(
+                'post-style',
+                get_template_directory_uri() . '/css/single-post.css',
+                [],
+                null,
+                'all'
+            );
+        }
         if (is_singular('project')) {
             wp_enqueue_style(
                 'project-style',

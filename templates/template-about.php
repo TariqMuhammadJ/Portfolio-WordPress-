@@ -13,7 +13,9 @@
       <p class="text-[#6a7581] text-base">
         <?php echo esc_html(get_the_author_meta('author_profession', get_current_user_id())); ?>
       </p>
-      <p class="text-[#6a7581] text-base">San Francisco, CA</p>
+      <p class="text-[#6a7581] text-base">
+        <?php echo esc_html(get_the_author_meta('author_location', get_current_user_id())); ?>
+      </p>
     </div>
   </div>
 
@@ -48,18 +50,47 @@
     <h3 class="text-lg font-semibold text-[#121416] mb-3">Experience</h3>
     <div class="space-y-3">
       <?php 
-      $experience = [
-        ['role' => 'Product Designer at Acme Co.', 'duration' => '2020 - Present'],
-        ['role' => 'UX Designer at Beta Inc.', 'duration' => '2018 - 2020'],
-        ['role' => 'UI Designer at Gamma LLC.', 'duration' => '2016 - 2018'],
-      ];
-      foreach ($experience as $job) :
+      $experiences = get_the_author_meta('author_experiences', get_current_user_id());
+      if (is_array($experiences)) :
+        foreach ($experiences as $job) :
       ?>
         <div class="bg-white p-4 rounded-md border border-[#f1f2f4] shadow-sm">
-          <p class="text-base font-medium text-[#121416]"><?php echo $job['role']; ?></p>
-          <p class="text-sm text-[#6a7581]"><?php echo $job['duration']; ?></p>
+          <p class="text-base font-medium text-[#121416]"><?php echo esc_html($job['title']); ?></p>
+          <p class="text-sm text-[#6a7581] italic"><?php echo esc_html($job['date']); ?></p>
+          <p class="text-sm text-[#121416] mt-1"><?php echo esc_html($job['description']); ?></p>
         </div>
-      <?php endforeach; ?>
+      <?php 
+        endforeach;
+      endif;
+      ?>
+    </div>
+  </div>
+
+  <!-- Profile Links -->
+  <div class="mt-10">
+    <h3 class="text-lg font-semibold text-[#121416] mb-3">Profile Links</h3>
+    <div class="flex flex-wrap gap-3">
+      <?php 
+      $links = get_the_author_meta('profile_links', get_current_user_id());
+      if (is_array($links)) :
+        foreach ($links as $link) :
+          $label = !empty($link['label']) ? esc_html($link['label']) : 'Link';
+          $url = !empty($link['url']) ? esc_url($link['url']) : '#';
+      ?>
+        <a 
+          href="<?php echo $url; ?>" 
+          class="inline-flex items-center gap-2 px-4 py-2 border border-[#e2e6ea] rounded-lg bg-white text-sm text-[#0c77f2] font-medium hover:bg-[#f0f4ff]"
+          target="_blank" rel="noopener noreferrer"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M12.293 2.293a1 1 0 011.414 0L18 6.586a1 1 0 010 1.414l-8.293 8.293a1 1 0 01-1.414 0L2 9.414a1 1 0 010-1.414L6.586 2a1 1 0 011.414 0L10 4.586l2.293-2.293z"></path>
+          </svg>
+          <?php echo $label; ?>
+        </a>
+      <?php 
+        endforeach;
+      endif; 
+      ?>
     </div>
   </div>
 </div>
