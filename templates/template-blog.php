@@ -20,16 +20,7 @@ $query = new WP_Query($args);
 
     <!-- Search Bar -->
     <div class="max-w-xl mx-auto mb-10">
-        <form role="search" method="get" class="w-full" action="<?php echo home_url('/'); ?>">
-            <input
-                type="search"
-                name="s"
-                placeholder="Search blog posts..."
-                class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value="<?php echo get_search_query(); ?>"
-            />
-            <input type="hidden" name="post_type" value="post" />
-        </form>
+       <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
