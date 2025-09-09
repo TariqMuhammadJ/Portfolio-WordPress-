@@ -27,6 +27,16 @@ function mytheme_register_image_sizes() {
 }
 add_action('after_setup_theme', 'mytheme_register_image_sizes');
 
+function get_part($slug){
+    $url = get_template_directory_uri() . "/parts/part-{$slug}.php";
+    if(file_exists($url)){
+        include_once $url;
+    }
+    else{
+        return "no file exists";
+    }
+    
+}
 
 
 

@@ -24,6 +24,10 @@ class Theme_Assets {
         add_action('save_post_project', [$this, 'save_post_meta']);
     }
 
+    public function getTextDomain(){
+        return 'myfirsttheme';
+    }
+
     public function after_setup() {
         $this->load_theme_widget_areas();
         $this->theme_setup();
@@ -32,9 +36,18 @@ class Theme_Assets {
     public function init_hook() {
         $this->register_custom_post_type();
         $this->register_custom_blocks();
+        register_nav_menus(
+        array(
+            'primary-menu' => __( 'Primary Menu', $this->getTextDomain() ),
+            'footer-menu'  => __( 'Footer Menu', $this->getTextDomain() ),
+        )
+    );
     }
 
     public function enqueue_assets() {
+        if (is_front_page()){
+            wp_enqueue_style('style.css');
+        }
         if (is_page('portfolio')) {
             wp_enqueue_style('portfolio-css', get_template_directory_uri() . '/css/portfolio.css', [], false, 'all');
         }
@@ -50,13 +63,6 @@ class Theme_Assets {
             null
         );
 
-        wp_enqueue_script(
-            'tailwind',
-            'https://cdn.tailwindcss.com?plugins=forms,container-queries',
-            [],
-            null,
-            true
-        );
 
         wp_enqueue_style(
             'theme-style',
@@ -152,6 +158,12 @@ class Theme_Assets {
         add_theme_support('custom-spacing');
         add_theme_support('custom-units');
         add_theme_support('custom-gradient-presets');
+        add_theme_support('custom-logo', [
+        'height'      => 60,
+        'width'       => 60,
+        'flex-width'  => true,
+        'flex-height' => true,
+    ]);
     }
 
     public function setup_page() {

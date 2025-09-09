@@ -12,3 +12,188 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, theme-option
 */
 
 /* Start writing your CSS below */
+
+/* Global Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, "Noto Sans", sans-serif;
+
+  color: #111418;
+}
+
+
+:root{
+    --primary-color:#476EAE;
+    --secondary-color:#48B3AF;
+    --tertiary-color:#A7E399;
+    --quad-color:#F6FF99;
+    --main-padding:2vw 8vw;
+    --button-hover:#343525;
+    --button-padding:0.5vw 1vw;
+    --button-radius:2vw;
+
+}
+
+.content-section{
+    width:100vw;
+    min-height:100vh;
+    padding:var(--main-padding);
+
+
+}
+
+.nav-div{
+    width:100%;
+    height:min-content;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    padding:0.5vw 1vw;
+    border-radius:2vw;
+    background-color: rgba(0, 0, 0, 0.077);
+    box-sizing: border-box;
+
+}
+
+
+
+.menu-nav ul{
+    display: flex;
+    gap:2rem;
+}
+
+img.custom-logo{
+    width:5vw;
+    height:5vw;
+    border-radius:50%;
+
+
+}
+
+.nav-div a{
+    font-size:1.5rem;
+    color:rgba(0, 0, 0, 0.434);
+
+}
+
+
+
+.nav-div ul a:hover{
+    color:var(--secondary-color);   
+    font-weight:800;
+}
+
+.nav-div button{
+    background-color: var(--primary-color);  
+    padding:0.5vw;
+    border-radius:4vw;
+    transition:0.2s ease-out;
+}
+
+.nav-div button a{
+    color:white;
+    font-size:1.2rem;
+}
+
+.nav-div button:hover{
+    background-color:var(--button-hover);   
+
+}
+
+.cta-section{
+    width:100%;
+    height:min-content;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.cta-area{   
+    height: 100vh;
+    width:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.cta-content{
+    width:50%;
+
+
+}
+
+
+.cta-content * {
+    margin-bottom:1vw;
+    
+}
+.cta-intro{
+    color:rgba(0, 0, 0, 0.434);
+}
+
+.cta-title{
+    font-size:2rem;
+}
+
+.cta-content button{
+    background-color: var(--primary-color);
+    padding:var(--button-padding);
+    border-radius:var(--button-radius);
+    color:white;
+}
+
+.cta-content button:hover{
+    background-color: var(--button-hover);
+}
+
+
+.slider-infinite{
+    position:absolute;
+    overflow: hidden;
+    left:0;
+    bottom:0;
+    width:200%;
+    padding: 1vw 0;
+    background:linear-gradient(to bottom, black, rgb(109, 95, 95), rgb(194, 192, 192));
+}
+
+.slider-infinite ul{
+    height: min-content;
+    overflow: hidden;
+    color:white;
+    margin:0;
+    padding:0;
+    display: flex;
+    gap:2rem;
+    animation:slide-left 20s linear infinite;
+}
+
+.slider-infinite ul li::before{
+     content: "\2605";  /* black star ★ */
+    color: rgb(153, 153, 153);
+}
+
+/* Keyframes for continuous left scroll */
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width:1000px){
+    .cta-area{
+        align-items: flex-end;
+    }
+
+}
